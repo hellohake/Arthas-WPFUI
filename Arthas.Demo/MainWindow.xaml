@@ -209,16 +209,6 @@
                                     </metro:MetroGroupBox>
                                 </Grid>
                                 <Grid>
-                                    <metro:MetroGroupBox Header="画布背景">
-                                        <Grid>
-                                            <StackPanel>
-                                                <metro:MetroCanvasGrid Height="100" Margin="5" />
-                                                <metro:MetroCanvasGrid Height="100" Margin="5" Background="Red" GridOpacity="0.5" IsApplyTheme="False" Viewport="0 0 20 20" CornerRadius="10" />
-                                            </StackPanel>
-                                        </Grid>
-                                    </metro:MetroGroupBox>
-                                </Grid>
-                                <Grid>
                                     <metro:MetroGroupBox Header="开关">
                                         <StackPanel>
                                             <metro:MetroSwitch Content="关闭禁用" Margin="10" IsEnabled="False" />

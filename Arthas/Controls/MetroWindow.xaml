@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:metro="clr-namespace:Arthas.Controls">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Arthas;component/Controls/Common.xaml" />
+        <ResourceDictionary Source="Common.xaml" />
     </ResourceDictionary.MergedDictionaries>
     <Style TargetType="{x:Type metro:MetroWindow}">
         <Setter Property="UseLayoutRounding" Value="True" />
