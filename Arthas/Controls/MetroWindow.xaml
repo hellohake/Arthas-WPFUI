@@ -8,17 +8,15 @@
     <Style TargetType="{x:Type metro:MetroWindow}">
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-
         <Setter Property="Background" Value="#F1F1F7" />
         <Setter Property="Foreground" Value="#22242A" />
         <Setter Property="CaptionBackground" Value="{StaticResource Brush}" />
         <Setter Property="CaptionForeground" Value="#FFFFFF" />
-
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type metro:MetroWindow}">
                     <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                        <Grid>
+                        <Grid x:Name="PART_Content">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition />

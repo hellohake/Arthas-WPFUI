@@ -10,6 +10,6 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="FontAwesomeForWPF" Version="20.2.22.1" />
-        <PackageReference Include="AutoVersionTask" Version="1.1.0" PrivateAssets="All" />
+        <PackageReference Include="AutoVersionTask" Version="2.1.0" PrivateAssets="All" />
     </ItemGroup>
 </Project>

@@ -6,6 +6,7 @@ namespace Arthas.Interop
     [SuppressMessage("ReSharper", "IdentifierTypo")]
     public enum WindowsMessages
     {
-        NCLBUTTONDOWN = 0x000000A1
+        NCLBUTTONDOWN = 0x000000A1,
+        NCCALCSIZE = 0x00000083,
     }
 }

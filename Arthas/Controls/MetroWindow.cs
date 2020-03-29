@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
+using System.Windows.Shell;
+using Arthas.Extensions;
 using Arthas.Interop;
-using ControlzEx.Behaviors;
 
 namespace Arthas.Controls
 {
@@ -64,62 +65,92 @@ namespace Arthas.Controls
                 SystemCommands.CloseWindow(this);
             }));
 
-            new WindowChromeBehavior
+            WindowChrome.SetWindowChrome(this, new WindowChrome
             {
-                KeepBorderOnMaximize = true,
-                ResizeBorderThickness = new Thickness(2)
-            }.Attach(this);
-            new GlowWindowBehavior
-            {
-                ResizeBorderThickness = new Thickness(9),
-                GlowBrush = new SolidColorBrush(Color.FromArgb((byte)(32 * 2.55), 0, 0, 0)),
-                NonActiveGlowBrush = new SolidColorBrush(Color.FromArgb((byte)(12 * 2.55), 0, 0, 0))
-            }.Attach(this);
+                CaptionHeight = 0,
+                CornerRadius = new CornerRadius(0),
+                GlassFrameThickness = new Thickness(0, 0, 0, 1),
+                NonClientFrameEdges = NonClientFrameEdges.None,
+                ResizeBorderThickness = new Thickness(6),
+                UseAeroCaptionButtons = false
+            });
+
+            Loaded += OnLoaded;
         }
 
-        Border PART_Caption;
+        void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            RefreshMaxSize();
+        }
+
+        FrameworkElement PART_Content;
+        FrameworkElement PART_Caption;
 
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
 
-            PART_Caption = GetTemplateChild(nameof(PART_Caption)) as Border;
-            SetCaption(PART_Caption);
+            PART_Content = GetTemplateChild(nameof(PART_Content)) as FrameworkElement;
+            PART_Caption = GetTemplateChild(nameof(PART_Caption)) as FrameworkElement;
+
+            PART_Caption.SetCaption();
         }
 
-        public void SetCaption(FrameworkElement element)
+        IntPtr handle;
+        HwndSource hwndSource;
+
+        protected override void OnSourceInitialized(EventArgs e)
         {
-            if (element == null)
+            base.OnSourceInitialized(e);
+
+            handle = new WindowInteropHelper(this).Handle;
+            hwndSource = HwndSource.FromHwnd(handle);
+            hwndSource?.AddHook(WndProc);
+
+            RefreshMaxSize();
+        }
+
+        static IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+            switch ((WindowsMessages)msg)
+            {
+                case WindowsMessages.NCCALCSIZE:
+                    handled = true;
+                    break;
+            }
+
+            return IntPtr.Zero;
+        }
+
+        protected override void OnStateChanged(EventArgs e)
+        {
+            base.OnStateChanged(e);
+            RefreshMaxSize();
+        }
+
+        void RefreshMaxSize()
+        {
+            if (PART_Content == null)
                 return;
 
-            element.MouseLeftButtonDown += delegate(object sender, MouseButtonEventArgs e)
+            if (handle == IntPtr.Zero)
+                return;
+
+            if (WindowState == WindowState.Maximized)
             {
-                var handle = new WindowInteropHelper(this).Handle;
-                if (handle == IntPtr.Zero)
+                var screen = Screen.FromHandle(handle);
+                var matrix = hwndSource?.CompositionTarget?.TransformToDevice;
+                if (!matrix.HasValue)
                     return;
 
-                if (e.ClickCount == 2)
-                    switch (ResizeMode)
-                    {
-                        case ResizeMode.CanResize:
-                        case ResizeMode.CanResizeWithGrip:
-
-                            switch (WindowState)
-                            {
-                                case WindowState.Normal:
-                                    SystemCommands.MaximizeWindow(this);
-                                    break;
-
-                                case WindowState.Maximized:
-                                    SystemCommands.RestoreWindow(this);
-                                    break;
-                            }
-
-                            break;
-                    }
-                else
-                    NativeMethods.SendMessage(handle, WindowsMessages.NCLBUTTONDOWN, (IntPtr)HitTest.CAPTION, IntPtr.Zero);
-            };
+                PART_Content.MaxWidth = Math.Max(screen.WorkingArea.Width / matrix.Value.M11, MinWidth);
+                PART_Content.MaxHeight = Math.Max(screen.WorkingArea.Height / matrix.Value.M22, MinHeight);
+            }
+            else
+            {
+                PART_Content.MaxWidth = double.PositiveInfinity;
+                PART_Content.MaxHeight = double.PositiveInfinity;
+            }
         }
     }
 }
