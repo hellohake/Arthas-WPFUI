@@ -134,7 +134,6 @@
                                             <StackPanel Background="#00000000">
                                                 <metro:MetroProgressBar Title="MetroProgressBar 等待禁用" Margin="60,5,5,5" ProgressBarState="Wait" IsEnabled="False" />
                                                 <metro:MetroProgressBar x:Name="Vis" Title="MetroProgressBar 等待" Margin="5" ProgressBarState="Wait" />
-                                                <metro:MetroVisualElement Visual="{Binding ElementName=Vis}" VisualOpacity="0.5" VisualBlurRadius="10" Width="{Binding ActualWidth,ElementName=Vis}" Height="{Binding ActualHeight,ElementName=Vis}" />
                                                 <metro:MetroProgressBar Title="MetroProgressBar 等待调整大小" Margin="5,5,60,5" ProgressBarState="Wait" ProgressBarHeight="30" CornerRadius="15" />
                                             </StackPanel>
                                         </Grid>

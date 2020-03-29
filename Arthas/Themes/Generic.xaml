@@ -18,7 +18,6 @@
         <ResourceDictionary Source="/Arthas;component/Controls/MetroTextButton.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroTitleMenu.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroTitleMenuItem.xaml" />
-        <ResourceDictionary Source="/Arthas;component/Controls/MetroVisualElement.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroWindow.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
