@@ -44,7 +44,7 @@
 
         <Setter Property="Background" Value="#FFFFFFFF" />
         <Setter Property="MouseMoveBackground" Value="#FFFFFFFF" />
-        <Setter Property="BorderBrush" Value="{StaticResource Brush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}" />
         <Setter Property="Foreground" Value="#A5000000" />
         <Setter Property="TitleForeground" Value="#A5000000" />
         <Setter Property="TitleMinWidth" Value="80" />

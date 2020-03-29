@@ -11,7 +11,7 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
 
         <Setter Property="Foreground" Value="#FFFFFFFF" />
-        <Setter Property="Background" Value="{StaticResource Brush}" />
+        <Setter Property="Background" Value="{StaticResource PrimaryBrush}" />
         <Setter Property="MinWidth" Value="100" />
         <Setter Property="MinHeight" Value="40" />
         <Setter Property="FontSize" Value="14" />

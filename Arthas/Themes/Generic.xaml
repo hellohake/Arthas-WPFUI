@@ -1,17 +1,15 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Arthas;component/Controls/MetroButton.xaml" />
+        <ResourceDictionary Source="/Arthas;component/Controls/MetroCard.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroContextMenu.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroExpander.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroFocusButton.xaml" />
-        <ResourceDictionary Source="/Arthas;component/Controls/MetroGroupBox.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroMenuItem.xaml" />
-        <ResourceDictionary Source="/Arthas;component/Controls/MetroMenuSeparator.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroProgressBar.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroScrollViewer.xaml" />
+        <ResourceDictionary Source="/Arthas;component/Controls/MetroShadow.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroSwitch.xaml" />
-        <ResourceDictionary Source="/Arthas;component/Controls/MetroTabControl.xaml" />
-        <ResourceDictionary Source="/Arthas;component/Controls/MetroTabItem.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroTextBlock.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroTextBox.xaml" />
         <ResourceDictionary Source="/Arthas;component/Controls/MetroTextButton.xaml" />

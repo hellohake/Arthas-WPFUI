@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
     <PropertyGroup>
-        <TargetFrameworks>net461;netcoreapp3.0</TargetFrameworks>
+        <TargetFramework>netcoreapp5.0</TargetFramework>
         <LangVersion>latest</LangVersion>
         <UseWPF>true</UseWPF>
         <OutputType>WinExe</OutputType>
@@ -9,7 +9,6 @@
         <ProjectReference Include="..\Arthas\Arthas.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="FontAwesomeForWPF" Version="20.2.22.1" />
-        <PackageReference Include="AutoVersionTask" Version="2.1.0" PrivateAssets="All" />
+      <Folder Include="Demos" />
     </ItemGroup>
 </Project>
