@@ -1,12 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:metro="clr-namespace:Arthas.Controls"
-                    xmlns:converter="clr-namespace:Arthas.Converter">
+                    xmlns:metro="clr-namespace:Arthas.Controls">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Arthas;component/Controls/Common.xaml" />
     </ResourceDictionary.MergedDictionaries>
-
-    <converter:CornerRadiusToDouble x:Key="CornerRadiusToDouble" />
 
     <Style TargetType="{x:Type metro:MetroProgressBar}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -47,7 +44,7 @@
                             <Border BorderBrush="#000000" BorderThickness="1" CornerRadius="{TemplateBinding CornerRadius}" Opacity="0.1" />
                             <Grid Margin="{TemplateBinding BorderThickness}">
                                 <Border x:Name="PART_Track" />
-                                <Grid x:Name="PART_Indicator" ClipToBounds="True" HorizontalAlignment="Left" MinWidth="{TemplateBinding CornerRadius,Converter={StaticResource CornerRadiusToDouble},ConverterParameter=2}">
+                                <Grid x:Name="PART_Indicator" ClipToBounds="True" HorizontalAlignment="Left">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition x:Name="width1" />
                                         <ColumnDefinition x:Name="width2" Width="0" />

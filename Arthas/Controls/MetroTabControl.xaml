@@ -1,12 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:metro="clr-namespace:Arthas.Controls"
-                    xmlns:converter="clr-namespace:Arthas.Converter">
+                    xmlns:metro="clr-namespace:Arthas.Controls">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Arthas;component/Controls/Common.xaml" />
     </ResourceDictionary.MergedDictionaries>
-
-    <converter:DoubleToThickness x:Key="DoubleToThickness" />
 
     <Style TargetType="{x:Type metro:MetroTabControl}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />

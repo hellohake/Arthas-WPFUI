@@ -29,15 +29,6 @@ namespace Arthas.Controls
             set => SetValue(MouseMoveBorderBrushProperty, value);
         }
 
-        public new static readonly DependencyProperty BorderThicknessProperty =
-            DependencyProperty.Register(nameof(BorderThickness), typeof(double), typeof(MetroFocusButton));
-
-        public new double BorderThickness
-        {
-            get => (double)GetValue(BorderThicknessProperty);
-            set => SetValue(BorderThicknessProperty, value);
-        }
-
         public static readonly DependencyProperty MouseMoveBorderThicknessProperty =
             DependencyProperty.Register(nameof(MouseMoveBorderThickness), typeof(double), typeof(MetroFocusButton));
 

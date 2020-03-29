@@ -1,12 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:metro="clr-namespace:Arthas.Controls"
-                    xmlns:converter="clr-namespace:Arthas.Converter">
+                    xmlns:metro="clr-namespace:Arthas.Controls">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Arthas;component/Controls/Common.xaml" />
     </ResourceDictionary.MergedDictionaries>
-
-    <converter:StringToVisibility x:Key="StringToVisibility" />
 
     <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -89,7 +86,7 @@
                         </Border>
                         <Popup Grid.Column="0" x:Name="popupHint" PlacementTarget="{Binding ElementName=PART_ContentHost}" AllowsTransparency="True" Focusable="False" Placement="RelativePoint" VerticalOffset="-42" HorizontalOffset="-14" PopupAnimation="Fade">
                             <Grid>
-                                <StackPanel Visibility="{TemplateBinding PopupHint, Converter={StaticResource StringToVisibility}}">
+                                <StackPanel>
                                     <Border x:Name="popupborder" CornerRadius="2" Background="{TemplateBinding BorderBrush}">
                                         <metro:MetroTextBlock x:Name="popupText" Text="{TemplateBinding PopupHint}" Margin="8,6" Foreground="#FFFFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                     </Border>
